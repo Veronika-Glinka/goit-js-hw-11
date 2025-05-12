@@ -101,7 +101,7 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  display: none; /* Початково прихований */
+  visibility: hidden;
   border-top: 4px solid #fff;
   border-right: 4px solid transparent;
   box-sizing: border-box;
@@ -132,5 +132,5 @@
 
 /* Клас для показу лоадера */
 .loader-show {
-  display: inline-block;
+  visibility: visible;
 }
