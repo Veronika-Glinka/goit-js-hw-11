@@ -17,16 +17,8 @@ export function getImagesByQuery(query) {
         safesearch: true,
       },
     })
-    .then(response => {
-      const { hits } = response.data;
-      return hits;
-    })
+    .then(response => response.data.hits) // без обробки hits.length
     .catch(error => {
-      iziToast.error({
-        title: 'Error',
-        message: 'An error occurred while fetching images.',
-        position: 'topRight',
-      });
-      return [];
+      throw error; // передаємо помилку далі
     });
 }

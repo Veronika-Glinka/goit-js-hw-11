@@ -46,16 +46,9 @@ function imagesTemplate(images) {
 }
 
 function createGallery(images) {
+  clearGallery();
   const markup = imagesTemplate(images);
   galleryEl.innerHTML = markup;
-
-  if (images.length === 0) {
-    iziToast.error({
-      message:
-        'Sorry, there are no images matching your search query. Please try again!',
-      position: 'topRight',
-    });
-  }
 
   const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
