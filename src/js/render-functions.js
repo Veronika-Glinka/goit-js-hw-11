@@ -36,7 +36,7 @@ function imageTemplate(image) {
       <p><b>Views:</b> ${image.views}</p>
       <p><b>Comments:</b> ${image.comments}</p>
       <p><b>Downloads:</b> ${image.downloads}</p>
-      <p><b>Categories:</b> ${tags}</p> <!-- Виводимо тільки перші три категорії -->
+      <p><b>Categories:</b> ${tags}</p>
     </div>
   </li>`;
 }
@@ -45,16 +45,17 @@ function imagesTemplate(images) {
   return images.map(imageTemplate).join('');
 }
 
+let lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+  captionPosition: 'bottom',
+});
+
 function createGallery(images) {
   clearGallery();
   const markup = imagesTemplate(images);
   galleryEl.innerHTML = markup;
 
-  const lightbox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
-    captionPosition: 'bottom',
-  });
   lightbox.refresh();
 }
 
